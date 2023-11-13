@@ -519,7 +519,7 @@ class Helpify
      * @param string $format The format to apply to the phone number.
      * @return string The formatted phone number.
      */
-    public function formatPhoneNumber($phoneNumber, $format = '+Z (ZZZ) ZZZ-ZZZz')
+    public function formatPhoneNumber($phoneNumber, $format = '+Z (ZZZ) ZZZ-ZZZZ')
     {
 
         $formattedPhoneNumber = $format;
