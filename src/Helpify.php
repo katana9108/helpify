@@ -511,4 +511,24 @@ class Helpify
             throw new \InvalidArgumentException('Input must be an array or a Collection.');
         }
     }
+
+    /**
+     * Formats a telephone number according to a specified format.
+     *
+     * @param string $phoneNumber The phone number to format.
+     * @param string $format The format to apply to the phone number.
+     * @return string The formatted phone number.
+     */
+    public function formatPhoneNumber($phoneNumber, $format = '+Z (ZZZ) ZZZ-ZZZz')
+    {
+
+        $formattedPhoneNumber = $format;
+
+        for ($i = 0; $i < strlen($phoneNumber); $i++) {
+            $formattedPhoneNumber = str_replace('Z', $phoneNumber[$i], $formattedPhoneNumber);
+        }
+
+        return $formattedPhoneNumber;
+    }
+    
 }
