@@ -525,5 +525,6 @@ class Helpify
         for ($i = 0; $i < strlen($phoneNumber); $i++) {
             $formattedPhoneNumber = preg_replace('/Z/', $phoneNumber[$i], $formattedPhoneNumber, 1);
         }
+        return $formattedPhoneNumber;
     }
 }
