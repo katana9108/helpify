@@ -512,23 +512,18 @@ class Helpify
         }
     }
 
-    /**
-     * Formats a telephone number according to a specified format.
-     *
-     * @param string $phoneNumber The phone number to format.
-     * @param string $format The format to apply to the phone number.
-     * @return string The formatted phone number.
-     */
+
     public function formatPhoneNumber($phoneNumber, $format = '+Z (ZZZ) ZZZ-ZZZZ')
     {
+
+        if (!ctype_digit($phoneNumber)) {
+            return 'Invalid phone number';
+        }
 
         $formattedPhoneNumber = $format;
 
         for ($i = 0; $i < strlen($phoneNumber); $i++) {
-            $formattedPhoneNumber = str_replace('Z', $phoneNumber[$i], $formattedPhoneNumber);
+            $formattedPhoneNumber = preg_replace('/Z/', $phoneNumber[$i], $formattedPhoneNumber, 1);
         }
-
-        return $formattedPhoneNumber;
     }
-    
 }
